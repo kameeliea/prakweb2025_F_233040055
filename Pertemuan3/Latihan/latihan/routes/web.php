@@ -1,0 +1,18 @@
+<?php
+
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Route;
+
+// Contoh Route untuk menampilkan view
+Route::get('/', function () {
+    return view('welcome');
+});
+
+// Route untuk memanggil method di PostController
+Route::get('posts', [PostController::class, 'index'])->name('posts.index');
+
+Route::view('/', 'home');
+Route::view('/about', 'about');
+Route::view('/blog', 'blog');
+Route::view('/contact', 'contact');
