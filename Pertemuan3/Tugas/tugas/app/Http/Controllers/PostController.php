@@ -10,7 +10,12 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::all();
-        return view('posts', compact('posts'));
+        // salah → menyebabkan N+1
+        // $posts = Post::all();
+
+        // benar → gunakan eager loading
+        $posts = Post::with(['user', 'category'])->get();
+
+        return view('posts.index', compact('posts'));
     }
 }

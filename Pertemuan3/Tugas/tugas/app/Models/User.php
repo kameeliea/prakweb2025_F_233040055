@@ -39,6 +39,6 @@ class User extends Authenticatable
     // Relasi : Satu user memiliki banyak post (One-to-Many)
     public function posts()
     {
-        return $this->hasMany(\App\Models\Post::class);
+        return $this->hasMany(Post::class);
     }
 }
